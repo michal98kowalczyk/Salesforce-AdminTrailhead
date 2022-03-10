@@ -15,3 +15,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: run jenkins job on aws
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://52.18.189.6:8080/job/firstjob/build?token=runfirstjobonaws'
+          method: 'POST'
